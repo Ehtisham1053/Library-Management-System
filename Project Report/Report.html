@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System - Project Report</title>
+    <style>
+        /* Base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: #fff;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Typography */
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        h4 {
+            font-size: 1.125rem;
+            font-weight: 500;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        /* Lists */
+        ul, ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        li {
+            margin-bottom: 0.25rem;
+        }
+        
+        /* Links */
+        a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Table of Contents */
+        .toc {
+            background-color: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.375rem;
+            padding: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .toc h2 {
+            margin-top: 0;
+            margin-bottom: 1rem;
+            border-bottom: none;
+        }
+        
+        .toc ol {
+            list-style-type: decimal;
+        }
+        
+        .toc li {
+            margin-bottom: 0.25rem;
+        }
+        
+        /* Code blocks */
+        .code-block {
+            background-color: #1f2937;
+            border-radius: 0.375rem;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+        
+        .code-header {
+            background-color: #374151;
+            color: #e5e7eb;
+            font-family: monospace;
+            font-size: 0.875rem;
+            padding: 0.5rem 1rem;
+        }
+        
+        .code-content {
+            padding: 1rem;
+            overflow-x: auto;
+        }
+        
+        .code-content code {
+            color: #e5e7eb;
+            font-family: monospace;
+            font-size: 0.875rem;
+            white-space: pre;
+        }
+        
+        /* Diagrams */
+        .diagram {
+            border: 1px solid #e5e7eb;
+            border-radius: 0.375rem;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background-color: #fff;
+        }
+        
+        .diagram h3 {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        
+        .diagram-container {
+            display: flex;
+            justify-content: center;
+        }
+        
+        .diagram svg {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 640px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            h1 {
+                font-size: 1.5rem;
+            }
+            
+            h2 {
+                font-size: 1.25rem;
+            }
+            
+            h3 {
+                font-size: 1.125rem;
+            }
+            
+            h4 {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div style="margin-bottom: 2.5rem;">
+            <h1>Library Management System</h1>
+            <h2 style="text-align: center; border-bottom: none; font-size: 1.25rem; color: #4b5563;">Comprehensive Project Report</h2>
+        </div>
+
+        <!-- Table of Contents -->
+        <div class="toc" id="table-of-contents">
+            <h2>Table of Contents</h2>
+            <ol>
+                <li><a href="#project-overview">Project Overview</a></li>
+                <li><a href="#system-architecture">System Architecture</a></li>
+                <li><a href="#data-storage">Data Storage and File Structure</a></li>
+                <li><a href="#module-descriptions">Module Descriptions</a></li>
+                <li><a href="#user-roles">User Roles and Authentication</a></li>
+                <li><a href="#core-features">Core Features</a></li>
+                <li><a href="#implementation-details">Implementation Details</a></li>
+                <li><a href="#error-handling">Error Handling and Data Integrity</a></li>
+                <li><a href="#user-interface">User Interface</a></li>
+                <li><a href="#future-enhancements">Future Enhancements</a></li>
+                <li><a href="#conclusion">Conclusion</a></li>
+            </ol>
+        </div>
+
+        <!-- Project Overview -->
+        <section id="project-overview">
+            <h2>1. Project Overview</h2>
+            <p>
+                The Library Management System (LMS) is a comprehensive Python-based application built with Streamlit that
+                facilitates the management of library resources, user accounts, and book circulation. The system provides
+                separate interfaces for administrators and students, allowing for efficient library operations without
+                requiring a database server.
+            </p>
+
+            <h3>Key Features</h3>
+            <ul>
+                <li>User authentication and role-based access control</li>
+                <li>Book inventory management with multiple copies support</li>
+                <li>Book issuance and return processing with approval workflows</li>
+                <li>Student account management with approval and flagging mechanisms</li>
+                <li>Analytics and reporting capabilities</li>
+                <li>Logging system for tracking all activities</li>
+                <li>File-based data storage for easy deployment</li>
+            </ul>
+
+            <h3>Technology Stack</h3>
+            <ul>
+                <li><strong>Programming Language</strong>: Python 3.x</li>
+                <li><strong>Frontend Framework</strong>: Streamlit</li>
+                <li><strong>Data Storage</strong>: JSON files</li>
+                <li><strong>Data Processing</strong>: Pandas</li>
+                <li><strong>Date Handling</strong>: Python datetime module</li>
+                <li><strong>Authentication</strong>: SHA-256 hashing</li>
+            </ul>
+        </section>
+
+        <!-- System Architecture -->
+        <section id="system-architecture">
+            <h2>2. System Architecture</h2>
+            <p>
+                The Library Management System follows a modular architecture with clear separation of concerns:
+            </p>
+
+            <div class="diagram">
+                <h3>System Architecture</h3>
+                <div class="diagram-container">
+                    <svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" style="width: 100%; max-width: 600px;">
+                        <!-- Main Application -->
+                        <rect x="300" y="50" width="200" height="60" rx="5" fill="#e5e7eb" stroke="#6b7280" stroke-width="2" />
+                        <text x="400" y="85" text-anchor="middle" font-size="14" font-weight="bold">
+                            Main Application (app.py)
+                        </text>
+
+                        <!-- Components below Main Application -->
+                        <rect x="100" y="170" width="180" height="50" rx="5" fill="#e5e7eb" stroke="#6b7280" stroke-width="2" />
+                        <text x="190" y="200" text-anchor="middle" font-size="14" font-weight="bold">
+                            Authentication Module
+                        </text>
+
+                        <rect x="310" y="170" width="180" height="50" rx="5" fill="#e5e7eb" stroke="#6b7280" stroke-width="2" />
+                        <text x="400" y="200" text-anchor="middle" font-size="14" font-weight="bold">
+                            File Handler Service
+                        </text>
+
+                        <rect x="520" y="170" width="180" height="50" rx="5" fill="#e5e7eb" stroke="#6b7280" stroke-width="2" />
+                        <text x="610" y="200" text-anchor="middle" font-size="14" font-weight="bold">
+                            Page Router
+                        </text>
+
+                        <!-- Components in the bottom row -->
+                        <rect x="100" y="280" width="150" height="50" rx="5" fill="#e5e7eb" stroke="#6b7280" stroke-width="2" />
+                        <text x="175" y="310" text-anchor="middle" font-size="14" font-weight="bold">
+                            Admin Dashboard
+                        </text>
+
+                        <rect x="280" y="280" width="150" height="50" rx="5" fill="#e5e7eb" stroke="#6b7280" stroke-width="2" />
+                        <text x="355" y="310" text-anchor="middle" font-size="14" font-weight="bold">
+                            Student Dashboard
+                        </text>
+
+                        <rect x="460" y="280" width="150" height="50" rx="5" fill="#e5e7eb" stroke="#6b7280" stroke-width="2" />
+                        <text x="535" y="310" text-anchor="middle" font-size="14" font-weight="bold">
+                            Login/Registration Pages
+                        </text>
+
+                        <rect x="640" y="280" width="150" height="50" rx="5" fill="#e5e7eb" stroke="#6b7280" stroke-width="2" />
+                        <text x="715" y="310" text-anchor="middle" font-size="14" font-weight="bold">
+                            Data Files (JSON)
+                        </text>
+
+                        <!-- Connecting lines -->
+                        <!-- Main App to components -->
+                        <line x1="400" y1="110" x2="190" y2="170" stroke="#6b7280" stroke-width="2" />
+                        <line x1="400" y1="110" x2="400" y2="170" stroke="#6b7280" stroke-width="2" />
+                        <line x1="400" y1="110" x2="610" y2="170" stroke="#6b7280" stroke-width="2" />
+
+                        <!-- Components to bottom row -->
+                        <line x1="190" y1="220" x2="175" y2="280" stroke="#6b7280" stroke-width="2" />
+                        <line x1="190" y1="220" x2="355" y2="280" stroke="#6b7280" stroke-width="2" />
+                        <line x1="190" y1="220" x2="535" y2="280" stroke="#6b7280" stroke-width="2" />
+
+                        <line x1="400" y1="220" x2="175" y2="280" stroke="#6b7280" stroke-width="2" />
+                        <line x1="400" y1="220" x2="355" y2="280" stroke="#6b7280" stroke-width="2" />
+                        <line x1="400" y1="220" x2="715" y2="280" stroke="#6b7280" stroke-width="2" />
+
+                        <line x1="610" y1="220" x2="175" y2="280" stroke="#6b7280" stroke-width="2" />
+                        <line x1="610" y1="220" x2="355" y2="280" stroke="#6b7280" stroke-width="2" />
+                        <line x1="610" y1="220" x2="535" y2="280" stroke="#6b7280" stroke-width="2" />
+                    </svg>
+                </div>
+            </div>
+
+            <h3>Component Breakdown</h3>
+            <ol>
+                <li><strong>Main Application</strong>: Entry point that initializes the system and manages session state</li>
+                <li><strong>Authentication Module</strong>: Handles user login, registration, and session management</li>
+                <li><strong>File Handler Service</strong>: Core service for data operations and business logic</li>
+                <li><strong>Page Router</strong>: Manages navigation between different pages based on user role</li>
+                <li><strong>Admin Dashboard</strong>: Interface for administrative functions</li>
+                <li><strong>Student Dashboard</strong>: Interface for student interactions</li>
+                <li><strong>Data Files</strong>: JSON-based storage for all system data</li>
+            </ol>
+        </section>
+
+        <!-- Data Storage and File Structure -->
+        <section id="data-storage">
+            <h2>3. Data Storage and File Structure</h2>
+            <p>
+                The system uses a file-based storage approach with JSON files for data persistence and CSV for logging. This
+                approach eliminates the need for a database server while maintaining data integrity and relationships.
+            </p>
+
+            <h3>Directory Structure</h3>
+            <div class="code-block">
+                <div class="code-header">plaintext</div>
+                <div class="code-content">
+                    <code>library_management_system/
+├── app.py                  # Main application entry point
+├── components/             # UI components
+│   ├── __init__.py
+│   ├── admin_components.py # Admin UI components
+│   └── student_components.py # Student UI components
+├── data/                   # Data storage directory
+│   ├── admin.json          # Admin user data
+│   ├── books.json          # Book inventory data
+│   ├── issued_books.json   # Book circulation records
+│   ├── logs.csv            # Activity logs
+│   ├── requests.json       # Issue/return requests
+│   └── students.json       # Student user data
+├── pages/                  # Application pages
+│   ├── __init__.py
+│   ├── admin_dashboard.py  # Admin interface
+│   ├── login.py            # Authentication pages
+│   └── student_dashboard.py # Student interface
+└── services/               # Business logic services
+    ├── __init__.py
+    ├── auth_service.py     # Authentication service
+    └── file_handler.py     # Data management service</code>
+                </div>
+            </div>
+
+            <h3>Data Models</h3>
+
+            <h4>1. Student Model</h4>
+            <div class="code-block">
+                <div class="code-header">json</div>
+                <div class="code-content">
+                    <code>{
+  "id": "STU-A1B2C3",
+  "name": "John Doe",
+  "email": "john@example.com",
+  "password": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
+  "role": "student",
+  "approved": true,
+  "flagged": false,
+  "created_at": "2023-01-01 10:00:00"
+}</code>
+                </div>
+            </div>
+
+            <h4>2. Book Model</h4>
+            <div class="code-block">
+                <div class="code-header">json</div>
+                <div class="code-content">
+                    <code>{
+  "id": "BK-001",
+  "title": "To Kill a Mockingbird",
+  "author": "Harper Lee",
+  "genre": "Fiction",
+  "available": true,
+  "total_copies": 3,
+  "available_copies": 3,
+  "added_at": "2023-01-01 10:00:00"
+}</code>
+                </div>
+            </div>
+
+            <h4>3. Issued Book Model</h4>
+            <div class="code-block">
+                <div class="code-header">json</div>
+                <div class="code-content">
+                    <code>{
+  "id": "ISS-1",
+  "student_id": "STU-A1B2C3",
+  "book_id": "BK-001",
+  "issue_date": "2023-01-10 14:30:00",
+  "due_date": "2023-01-17 14:30:00",
+  "returned": false,
+  "return_date": null,
+  "return_requested": false
+}</code>
+                </div>
+            </div>
+
+            <h4>4. Request Model</h4>
+            <div class="code-block">
+                <div class="code-header">json</div>
+                <div class="code-content">
+                    <code>{
+  "id": "REQ-1",
+  "type": "issue",
+  "student_id": "STU-A1B2C3",
+  "book_id": "BK-001",
+  "issue_id": null,
+  "requested_at": "2023-01-10 14:25:00",
+  "status": "pending",
+  "approved_at": null
+}</code>
+                </div>
+            </div>
+
+            <h4>5. Log Entry (CSV)</h4>
+            <div class="code-block">
+                <div class="code-header">plaintext</div>
+                <div class="code-content">
+                    <code>timestamp,user_id,user_role,action,details
+2023-01-10 14:30:00,STU-A1B2C3,student,book_issue_request,Requested to borrow 'To Kill a Mockingbird'</code>
+                </div>
+            </div>
+        </section>
+
+        <!-- Module Descriptions -->
+        <section id="module-descriptions">
+            <h2>4. Module Descriptions</h2>
+
+            <h3>1. File Handler Service (services/file_handler.py)</h3>
+            <p>
+                The File Handler is the core service that manages all data operations and implements the business logic of the
+                system.
+            </p>
+
+            <h4>Key Responsibilities:</h4>
+            <ul>
+                <li>Initialize and maintain data files</li>
+                <li>Read and write JSON data</li>
+                <li>Log system activities</li>
+                <li>Implement book management operations</li>
+                <li>Process book issuance and returns</li>
+                <li>Handle student approval and flagging</li>
+                <li>Generate system analytics</li>
+            </ul>
+
+            <h4>Key Methods:</h4>
+            <ul>
+                <li>initialize_data_files(): Creates default data files with mock data</li>
+                <li>ensure_data_integrity(): Validates and fixes data inconsistencies</li>
+                <li>add_book(), update_book(), delete_book(): Book inventory management</li>
+                <li>request_book_issue(), request_book_return(): Student request handling</li>
+                <li>approve_book_request(): Admin approval workflow</li>
+                <li>issue_book_after_approval(), return_book_after_approval(): Process approved requests</li>
+                <li>issue_book(), return_book(): Direct admin operations</li>
+                <li>approve_student(), block_student(), flag_student(): Student account management</li>
+                <li>get_analytics(): Generate system statistics</li>
+            </ul>
+
+            <h3>2. Authentication Service (services/auth_service.py)</h3>
+            <p>Handles user authentication, registration, and session management.</p>
+
+            <h4>Key Methods:</h4>
+            <ul>
+                <li>register_user(): Create new student accounts</li>
+                <li>login(): Authenticate users and create sessions</li>
+                <li>logout(): End user sessions</li>
+                <li>hash_password(): Secure password hashing using SHA-256</li>
+                <li>verify_password(): Password verification</li>
+                <li>is_admin(), is_student(): Role verification</li>
+            </ul>
+
+            <h3>3. Admin Dashboard (pages/admin_dashboard.py)</h3>
+            <p>The administrative interface providing access to all management functions.</p>
+
+            <h4>Features:</h4>
+            <ul>
+                <li>Book inventory management</li>
+                <li>Student approval and management</li>
+                <li>Book issuance and return processing</li>
+                <li>Request approval workflows</li>
+                <li>System analytics and reporting</li>
+                <li>Activity logs</li>
+            </ul>
+
+            <h3>4. Student Dashboard (pages/student_dashboard.py)</h3>
+            <p>The student interface for library interactions.</p>
+
+            <h4>Features:</h4>
+            <ul>
+                <li>Browse available books</li>
+                <li>Request book issuance</li>
+                <li>View currently borrowed books</li>
+                <li>Request book returns</li>
+                <li>View request status</li>
+                <li>View account status (approved/flagged)</li>
+            </ul>
+
+            <h3>5. Login and Registration (pages/login.py)</h3>
+            <p>Handles user authentication and new account creation.</p>
+
+            <h4>Features:</h4>
+            <ul>
+                <li>Student registration</li>
+                <li>User login</li>
+                <li>Password management</li>
+                <li>Session handling</li>
+            </ul>
+        </section>
+
+        <!-- User Roles and Authentication -->
+        <section id="user-roles">
+            <h2>5. User Roles and Authentication</h2>
+            <p>The system implements role-based access control with two primary user roles:</p>
+
+            <h3>1. Administrator</h3>
+            <ul>
+                <li>Full access to all system functions</li>
+                <li>Can manage book inventory</li>
+                <li>Can approve/reject student registrations</li>
+                <li>Can approve/reject book issue and return requests</li>
+                <li>Can directly issue and return books</li>
+                <li>Can flag/unflag students</li>
+                <li>Can view system analytics and logs</li>
+            </ul>
+
+            <h3>2. Student</h3>
+            <ul>
+                <li>Limited access based on account status</li>
+                <li>Can browse available books</li>
+                <li>Can request to borrow books (if approved)</li>
+                <li>Can request to return books</li>
+                <li>Can view their borrowing history</li>
+                <li>Flagged students have restricted borrowing privileges</li>
+            </ul>
+
+            <h3>Authentication Process</h3>
+            <ol>
+                <li>Users enter email and password</li>
+                <li>Password is hashed using SHA-256</li>
+                <li>Credentials are verified against stored user data</li>
+                <li>On successful authentication, a session is created with user role and ID</li>
+                <li>Access to pages is controlled based on session data</li>
+            </ol>
+        </section>
+
+        <!-- Core Features -->
+        <section id="core-features">
+            <h2>6. Core Features</h2>
+
+            <h3>1. Book Management</h3>
+
+            <h4>Adding Books</h4>
+            <ul>
+                <li>Administrators can add new books to the inventory</li>
+                <li>Each book has a unique ID, title, author, and genre</li>
+                <li>Multiple copies of the same book can be added</li>
+                <li>System tracks total and available copies</li>
+            </ul>
+
+            <h4>Updating Books</h4>
+            <ul>
+                <li>Book details can be modified</li>
+                <li>Copy count can be adjusted</li>
+                <li>System maintains availability status based on copies</li>
+            </ul>
+
+            <h4>Deleting Books</h4>
+            <ul>
+                <li>Books can be removed if not currently issued</li>
+                <li>System prevents deletion of books in circulation</li>
+            </ul>
+
+            <h3>2. Book Circulation</h3>
+
+            <h4>Issue Process</h4>
+            <ol>
+                <li><strong>Student Request</strong>: Student requests to borrow a book</li>
+                <li><strong>System Validation</strong>: System checks book availability and student eligibility</li>
+                <li><strong>Admin Approval</strong>: Administrator reviews and approves/rejects the request</li>
+                <li><strong>Book Issuance</strong>: Upon approval, book is issued with a due date</li>
+                <li><strong>Inventory Update</strong>: Available copies count is decremented</li>
+            </ol>
+
+            <h4>Return Process</h4>
+            <ol>
+                <li><strong>Student Request</strong>: Student requests to return a book</li>
+                <li><strong>Admin Approval</strong>: Administrator reviews and approves the return</li>
+                <li><strong>Late Check</strong>: System checks if return is past due date</li>
+                <li><strong>Student Flagging</strong>: If return is late, student is flagged</li>
+                <li><strong>Inventory Update</strong>: Available copies count is incremented</li>
+            </ol>
+
+            <h3>3. Student Management</h3>
+
+            <h4>Registration and Approval</h4>
+            <ol>
+                <li>Students register with name, email, and password</li>
+                <li>New registrations require admin approval</li>
+                <li>Administrators can approve or block student accounts</li>
+            </ol>
+
+            <h4>Flagging System</h4>
+            <ul>
+                <li>Students returning books after due date are automatically flagged</li>
+                <li>Flagged students are limited to borrowing only one book at a time</li>
+                <li>Administrators can manually flag/unflag students</li>
+            </ul>
+
+            <h3>4. Request Workflow</h3>
+            <p>The system implements a request-approval workflow for book circulation:</p>
+
+            <div class="diagram">
+                <h3>Request Workflow</h3>
+                <div class="diagram-container">
+                    <svg viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg" style="width: 100%; max-width: 600px;">
+                        <!-- Workflow steps -->
+                        <rect x="50" y="70" width="150" height="50" rx="5" fill="#e5e7eb" stroke="#6b7280" stroke-width="2" />
+                        <text x="125" y="100" text-anchor="middle" font-size="12" font-weight="bold">
+                            Student Initiates Request
+                        </text>
+
+                        <rect x="250" y="70" width="150" height="50" rx="5" fill="#e5e7eb" stroke="#6b7280" stroke-width="2" />
+                        <text x="325" y="100" text-anchor="middle" font-size="12" font-weight="bold">
+                            System Validates Eligibility
+                        </text>
+
+                        <rect x="450" y="70" width="150" height="50" rx="5" fill="#e5e7eb" stroke="#6b7280" stroke-width="2" />
+                        <text x="525" y="100" text-anchor="middle" font-size="12" font-weight="bold">
+                            Request Added to Queue
+                        </text>
+
+                        <rect x="650" y="70" width="150" height="50" rx="5" fill="#e5e7eb" stroke="#6b7280" stroke-width="2" />
+                        <text x="725" y="100" text-anchor="middle" font-size="12" font-weight="bold">
+                            Admin Reviews Request
+                        </text>
+
+                        <rect x="550" y="150" width="150" height="50" rx="5" fill="#e5e7eb" stroke="#6b7280" stroke-width="2" />
+                        <text x="625" y="180" text-anchor="middle" font-size="12" font-weight="bold">
+                            Request Approved
+                        </text>
+
+                        <rect x="750" y="150" width="150" height="50" rx="5" fill="#e5e7eb" stroke="#6b7280" stroke-width="2" />
+                        <text x="825" y="180" text-anchor="middle" font-size="12" font-weight="bold">
+                            Request Rejected
+                        </text>
+
+                        <rect x="350" y="150" width="150" height="50" rx="5" fill="#e5e7eb" stroke="#6b7280" stroke-width="2" />
+                        <text x="425" y="180" text-anchor="middle" font-size="12" font-weight="bold">
+                            Book Issued/Returned
+                        </text>
+
+                        <rect x="150" y="150" width="150" height="50" rx="5" fill="#e5e7eb" stroke="#6b7280" stroke-width="2" />
+                        <text x="225" y="180" text-anchor="middle" font-size="12" font-weight="bold">
+                            Inventory Updated
+                        </text>
+
+                        <rect x="-50" y="150" width="150" height="50" rx="5" fill="#e5e7eb" stroke="#6b7280" stroke-width="2" />
+                        <text x="25" y="180" text-anchor="middle" font-size="12" font-weight="bold">
+                            Student Status Updated
+                        </text>
+
+                        <!-- Connecting arrows -->
+                        <line x1="200" y1="95" x2="250" y2="95" stroke="#6b7280" stroke-width="2" />
+                        <polygon points="250,95 240,90 240,100" fill="#6b7280" />
+
+                        <line x1="400" y1="95" x2="450" y2="95" stroke="#6b7280" stroke-width="2" />
+                        <polygon points="450,95 440,90 440,100" fill="#6b7280" />
+
+                        <line x1="600" y1="95" x2="650" y2="95" stroke="#6b7280" stroke-width="2" />
+                        <polygon points="650,95 640,90 640,100" fill="#6b7280" />
+
+                        <line x1="725" y1="120" x2="725" y2="150" stroke="#6b7280" stroke-width="2" />
+                        <polygon points="725,150 720,140 730,140" fill="#6b7280" />
+
+                        <line x1="725" y1="120" x2="825" y2="150" stroke="#6b7280" stroke-width="2" />
+                        <polygon points="825,150 815,145 820,135" fill="#6b7280" />
+
+                        <line x1="625" y1="150" x2="500" y2="150" stroke="#6b7280" stroke-width="2" />
+                        <polygon points="500,150 510,145 510,155" fill="#6b7280" />
+
+                        <line x1="425" y1="150" x2="300" y2="150" stroke="#6b7280" stroke-width="2" />
+                        <polygon points="300,150 310,145 310,155" fill="#6b7280" />
+
+                        <line x1="225" y1="150" x2="100" y2="150" stroke="#6b7280" stroke-width="2" />
+                        <polygon points="100,150 110,145 110,155" fill="#6b7280" />
+                    </svg>
+                </div>
+            </div>
+
+            <h3>5. Analytics and Reporting</h3>
+            <p>The system provides analytics on:</p>
+            <ul>
+                <li>Total books and available copies</li>
+                <li>Currently issued books</li>
+                <li>Total students and approval status</li>
+                <li>Flagged student count</li>
+                <li>Activity logs with filtering options</li>
+            </ul>
+        </section>
+
+        <!-- Implementation Details -->
+        <section id="implementation-details">
+            <h2>7. Implementation Details</h2>
+
+            <h3>1. Data Integrity Mechanisms</h3>
+            <p>The system implements several mechanisms to ensure data integrity:</p>
+            <ul>
+                <li><strong>Initialization Check</strong>: Verifies and creates required data files on startup</li>
+                <li><strong>Data Validation</strong>: Validates input data before processing</li>
+                <li><strong>Error Handling</strong>: Comprehensive try-except blocks with detailed error messages</li>
+                <li><strong>Data Consistency</strong>: Ensures related data is updated atomically</li>
+                <li><strong>Field Verification</strong>: Checks for required fields and adds missing ones</li>
+                <li><strong>Type Safety</strong>: Handles type conversion errors gracefully</li>
+            </ul>
+
+            <h3>2. Book Availability Management</h3>
+            <p>The system tracks book availability through two key fields:</p>
+            <ul>
+                <li>total_copies: Total number of copies owned by the library</li>
+                <li>available_copies: Number of copies currently available for borrowing</li>
+            </ul>
+            <p>The available flag is automatically set based on whether available_copies > 0.</p>
+
+            <h3>3. Multiple Copies Support</h3>
+            <p>The system supports multiple copies of the same book:</p>
+            <ul>
+                <li>Each book has a single record with copy count fields</li>
+                <li>When a book is issued, available_copies is decremented</li>
+                <li>When a book is returned, available_copies is incremented</li>
+                <li>The system prevents issuing books when available_copies is 0</li>
+            </ul>
+
+            <h3>4. Student Flagging Mechanism</h3>
+            <p>Students are flagged for late returns:</p>
+            <ul>
+                <li>When a book is returned after the due date, the student is flagged</li>
+                <li>Flagged students are limited to borrowing only one book at a time</li>
+                <li>Administrators can manually unflag students</li>
+            </ul>
+
+            <h3>5. Session Management</h3>
+            <p>The system uses Streamlit's session state for managing user sessions:</p>
+            <ul>
+                <li>User ID and role are stored in session after login</li>
+                <li>Pages check session state to control access</li>
+                <li>Session is cleared on logout</li>
+            </ul>
+        </section>
+
+        <!-- Error Handling and Data Integrity -->
+        <section id="error-handling">
+            <h2>8. Error Handling and Data Integrity</h2>
+
+            <h3>1. Exception Handling</h3>
+            <p>The system implements comprehensive exception handling:</p>
+            <ul>
+                <li>All file operations are wrapped in try-except blocks</li>
+                <li>Detailed error messages are logged for debugging</li>
+                <li>User-friendly error messages are displayed in the UI</li>
+                <li>Critical errors prevent data corruption</li>
+            </ul>
+
+            <h3>2. Data Validation</h3>
+            <p>Input validation is performed at multiple levels:</p>
+            <ul>
+                <li>Form validation in the UI</li>
+                <li>Business rule validation in service methods</li>
+                <li>Data type and format validation before storage</li>
+            </ul>
+
+            <h3>3. Data Integrity Checks</h3>
+            <p>The system includes mechanisms to maintain data integrity:</p>
+            <ul>
+                <li>ensure_data_integrity() method checks and fixes data inconsistencies</li>
+                <li>Missing fields are added with default values</li>
+                <li>Type conversions are handled safely</li>
+                <li>Relationships between data files are maintained</li>
+            </ul>
+
+            <h3>4. Logging</h3>
+            <p>All significant actions are logged for audit and troubleshooting:</p>
+            <ul>
+                <li>User actions (login, registration)</li>
+                <li>Book operations (add, update, delete)</li>
+                <li>Circulation events (issue, return)</li>
+                <li>Administrative actions (approvals, flagging)</li>
+                <li>System errors and warnings</li>
+            </ul>
+        </section>
+
+        <!-- User Interface -->
+        <section id="user-interface">
+            <h2>9. User Interface</h2>
+            <p>The system provides a clean, intuitive interface built with Streamlit:</p>
+
+            <h3>1. Login and Registration</h3>
+            <ul>
+                <li>Simple forms for authentication</li>
+                <li>Clear error messages for invalid inputs</li>
+                <li>Registration form with required fields</li>
+            </ul>
+
+            <h3>2. Admin Dashboard</h3>
+            <ul>
+                <li>Navigation sidebar with function categories</li>
+                <li>Book management section with add/edit/delete capabilities</li>
+                <li>Student management with approval controls</li>
+                <li>Request processing interface</li>
+                <li>Analytics dashboard with key metrics</li>
+                <li>Activity log viewer with filters</li>
+            </ul>
+
+            <h3>3. Student Dashboard</h3>
+            <ul>
+                <li>Available books browser with search and filter</li>
+                <li>Current loans section showing borrowed books</li>
+                <li>Return request interface</li>
+                <li>Account status indicator</li>
+                <li>Request history and status</li>
+            </ul>
+        </section>
+
+        <!-- Future Enhancements -->
+        <section id="future-enhancements">
+            <h2>10. Future Enhancements</h2>
+
+            <h3>1. Technical Enhancements</h3>
+            <ul>
+                <li><strong>Database Migration</strong>: Option to use SQL database for larger libraries</li>
+                <li><strong>API Development</strong>: REST API for integration with other systems</li>
+                <li><strong>Backup System</strong>: Automated backup of data files</li>
+                <li><strong>Data Export</strong>: Export data to CSV/Excel formats</li>
+                <li><strong>Performance Optimization</strong>: Caching and pagination for large datasets</li>
+            </ul>
+
+            <h3>2. Feature Enhancements</h3>
+            <ul>
+                <li><strong>Fine System</strong>: Calculate and track fines for late returns</li>
+                <li><strong>Reservation System</strong>: Allow students to reserve checked-out books</li>
+                <li><strong>Email Notifications</strong>: Send reminders for due dates</li>
+                <li><strong>Barcode Integration</strong>: Support for barcode scanning</li>
+                <li><strong>Advanced Analytics</strong>: Visual reports and trends analysis</li>
+                <li><strong>User Profiles</strong>: Enhanced user profile management</li>
+                <li><strong>Book Recommendations</strong>: Personalized book recommendations</li>
+            </ul>
+
+            <h3>3. UI Enhancements</h3>
+            <ul>
+                <li><strong>Mobile Responsiveness</strong>: Better support for mobile devices</li>
+                <li><strong>Dark Mode</strong>: Alternative color scheme</li>
+                <li><strong>Customizable Dashboard</strong>: User-configurable dashboard layouts</li>
+                <li><strong>Advanced Search</strong>: Full-text search capabilities</li>
+                <li><strong>Accessibility Improvements</strong>: Better support for screen readers</li>
+            </ul>
+        </section>
+
+        <!-- Conclusion -->
+        <section id="conclusion">
+            <h2>11. Conclusion</h2>
+            <p>
+                The Library Management System provides a comprehensive solution for managing library operations without the
+                complexity of a database server. Its file-based architecture makes it easy to deploy while still offering
+                robust features for book management, circulation, and user administration.
+            </p>
+            <p>
+                The modular design allows for easy maintenance and future enhancements, while the comprehensive error handling
+                and data integrity mechanisms ensure reliable operation. The system strikes a balance between simplicity and
+                functionality, making it suitable for small to medium-sized libraries.
+            </p>
+            <p>Key strengths of the system include:</p>
+            <ul>
+                <li>Simple deployment with no database requirements</li>
+                <li>Comprehensive book circulation management</li>
+                <li>Flexible user management with approval workflows</li>
+                <li>Robust error handling and data integrity</li>
+                <li>Clean, intuitive user interface</li>
+                <li>Detailed activity logging for audit purposes</li>
+            </ul>
+            <p>
+                The Library Management System demonstrates how a well-designed file-based application can provide
+                sophisticated functionality typically associated with database-driven systems, while maintaining simplicity
+                and ease of deployment.
+            </p>
+        </section>
+
+        <!-- Back to Top Link -->
+        <div style="text-align: center; margin-top: 2rem;">
+            <a href="#table-of-contents" style="display: inline-block; padding: 0.5rem 1rem; background-color: #f3f4f6; border-radius: 0.25rem; text-decoration: none; color: #374151;">
+                Back to Top
+            </a>
+        </div>
+    </div>
+</body>
+</html>

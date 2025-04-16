@@ -1,0 +1,102 @@
+[
+    {
+        "id": "BK-001",
+        "title": "To Kill a Mockingbird",
+        "author": "Harper Lee",
+        "genre": "Fiction",
+        "available": true,
+        "added_at": "2023-01-01 10:00:00",
+        "total_copies": 1,
+        "available_copies": 1
+    },
+    {
+        "id": "BK-002",
+        "title": "1984",
+        "author": "George Orwell",
+        "genre": "Science Fiction",
+        "available": true,
+        "added_at": "2023-01-01 10:05:00",
+        "total_copies": 1,
+        "available_copies": 1
+    },
+    {
+        "id": "BK-003",
+        "title": "The Great Gatsby",
+        "author": "F. Scott Fitzgerald",
+        "genre": "Fiction",
+        "available": false,
+        "added_at": "2023-01-01 10:10:00",
+        "total_copies": 1,
+        "available_copies": 0
+    },
+    {
+        "id": "BK-004",
+        "title": "Pride and Prejudice",
+        "author": "Jane Austen",
+        "genre": "Romance",
+        "available": true,
+        "added_at": "2023-01-01 10:15:00",
+        "total_copies": 1,
+        "available_copies": 1
+    },
+    {
+        "id": "BK-005",
+        "title": "The Hobbit",
+        "author": "J.R.R. Tolkien",
+        "genre": "Fantasy",
+        "available": true,
+        "added_at": "2023-01-01 10:20:00",
+        "total_copies": 1,
+        "available_copies": 1
+    },
+    {
+        "id": "BK-006",
+        "title": "Harry Potter and the Philosopher's Stone",
+        "author": "J.K. Rowling",
+        "genre": "Fantasy",
+        "available": false,
+        "added_at": "2023-01-01 10:25:00",
+        "total_copies": 1,
+        "available_copies": 0
+    },
+    {
+        "id": "BK-007",
+        "title": "The Catcher in the Rye",
+        "author": "J.D. Salinger",
+        "genre": "Fiction",
+        "available": true,
+        "added_at": "2023-01-01 10:30:00",
+        "total_copies": 1,
+        "available_copies": 1
+    },
+    {
+        "id": "BK-008",
+        "title": "The Lord of the Rings",
+        "author": "J.R.R. Tolkien",
+        "genre": "Fantasy",
+        "available": true,
+        "added_at": "2023-01-01 10:35:00",
+        "total_copies": 1,
+        "available_copies": 1
+    },
+    {
+        "id": "BK-009",
+        "title": "Brave New World",
+        "author": "Aldous Huxley",
+        "genre": "Science Fiction",
+        "available": true,
+        "added_at": "2023-01-01 10:40:00",
+        "total_copies": 1,
+        "available_copies": 1
+    },
+    {
+        "id": "BK-010",
+        "title": "The Alchemist",
+        "author": "Paulo Coelho",
+        "genre": "Fiction",
+        "available": true,
+        "added_at": "2023-01-01 10:45:00",
+        "total_copies": 1,
+        "available_copies": 1
+    }
+]

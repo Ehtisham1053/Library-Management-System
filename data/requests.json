@@ -1,0 +1,30 @@
+[
+    {
+        "id": "REQ-1",
+        "type": "return",
+        "student_id": "STU-CCF30F",
+        "book_id": "BK-002",
+        "issue_id": "ISS-2",
+        "requested_at": "2025-04-17 01:22:02",
+        "status": "approved",
+        "approved_at": "2025-04-17 01:22:45"
+    },
+    {
+        "id": "REQ-2",
+        "type": "issue",
+        "student_id": "STU-CCF30F",
+        "book_id": "BK-001",
+        "requested_at": "2025-04-17 01:42:58",
+        "status": "approved",
+        "approved_at": "2025-04-17 01:43:30"
+    },
+    {
+        "id": "REQ-3",
+        "type": "return",
+        "student_id": "STU-CCF30F",
+        "book_id": "BK-001",
+        "issue_id": "ISS-4",
+        "requested_at": "2025-04-17 01:44:06",
+        "status": "pending"
+    }
+]

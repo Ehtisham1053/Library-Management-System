@@ -1,0 +1,62 @@
+[
+    {
+        "id": "STU-A1B2C3",
+        "name": "John Doe",
+        "email": "john@example.com",
+        "password": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
+        "role": "student",
+        "approved": true,
+        "flagged": true,
+        "created_at": "2023-01-01 10:00:00"
+    },
+    {
+        "id": "STU-D4E5F6",
+        "name": "Jane Smith",
+        "email": "jane@example.com",
+        "password": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
+        "role": "student",
+        "approved": true,
+        "flagged": false,
+        "created_at": "2023-01-02 11:00:00"
+    },
+    {
+        "id": "STU-G7H8I9",
+        "name": "Bob Johnson",
+        "email": "bob@example.com",
+        "password": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
+        "role": "student",
+        "approved": true,
+        "flagged": true,
+        "created_at": "2023-01-03 12:00:00"
+    },
+    {
+        "id": "STU-J1K2L3",
+        "name": "Alice Brown",
+        "email": "alice@example.com",
+        "password": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
+        "role": "student",
+        "approved": true,
+        "flagged": false,
+        "created_at": "2023-01-04 13:00:00"
+    },
+    {
+        "id": "STU-M4N5O6",
+        "name": "Charlie Wilson",
+        "email": "charlie@example.com",
+        "password": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
+        "role": "student",
+        "approved": true,
+        "flagged": true,
+        "created_at": "2023-01-05 14:00:00"
+    },
+    {
+        "id": "STU-CCF30F",
+        "name": "Ehtisham",
+        "email": "Ehtisham@gmail.com",
+        "password": "8b0dbecfa9e028f9e9e32334f6f0ed3b6d2e633abe110f21bcec6c4d456b2281",
+        "role": "student",
+        "approved": true,
+        "flagged": false,
+        "created_at": "2025-04-17 00:37:24"
+    }
+]

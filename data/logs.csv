@@ -1,0 +1,43 @@
+timestamp,user_id,user_role,action,details
+2025-04-17 00:19:35,admin-001,admin,login,Library Admin logged in as admin
+2025-04-17 00:24:14,admin-001,admin,login,Library Admin logged in as admin
+2025-04-17 00:25:27,admin-001,admin,student_approve,Approveed student: Alice Brown (STU-J1K2L3)
+2025-04-17 00:29:02,admin-001,admin,login,Library Admin logged in as admin
+2025-04-17 00:34:24,admin-001,admin,login,Library Admin logged in as admin
+2025-04-17 00:34:47,admin-001,admin,student_flag,Flaged student: John Doe (STU-A1B2C3)
+2025-04-17 00:35:18,admin-001,admin,logout,Library Admin logged out
+2025-04-17 00:36:40,admin-001,admin,login,Library Admin logged in as admin
+2025-04-17 00:36:55,admin-001,admin,logout,Library Admin logged out
+2025-04-17 00:37:24,STU-CCF30F,student,registration,New student Ehtisham registered
+2025-04-17 00:37:56,admin-001,admin,login,Library Admin logged in as admin
+2025-04-17 00:38:14,admin-001,admin,student_approve,Approveed student: Ehtisham (STU-CCF30F)
+2025-04-17 00:38:29,admin-001,admin,logout,Library Admin logged out
+2025-04-17 00:38:45,STU-CCF30F,student,login,Ehtisham logged in as student
+2025-04-17 00:39:24,STU-CCF30F,student,request_book,Requested and received book: To Kill a Mockingbird
+2025-04-17 00:44:50,STU-CCF30F,student,login,Ehtisham logged in as student
+2025-04-17 00:45:49,admin-001,admin,login,Library Admin logged in as admin
+2025-04-17 00:46:37,STU-CCF30F,student,request_book,Requested and received book: 1984
+2025-04-17 00:47:20,admin-001,admin,student_flag,Flaged student: Ehtisham (STU-CCF30F)
+2025-04-17 00:47:39,STU-CCF30F,student,request_book,Requested and received book: Pride and Prejudice
+2025-04-17 01:18:42,admin-001,admin,login,Library Admin logged in as admin
+2025-04-17 01:19:05,admin-001,admin,student_unflag,Unflaged student: Ehtisham (STU-CCF30F)
+2025-04-17 01:19:15,admin-001,admin,logout,Library Admin logged out
+2025-04-17 01:19:38,STU-CCF30F,student,login,Ehtisham logged in as student
+2025-04-17 01:21:44,STU-CCF30F,student,login,Ehtisham logged in as student
+2025-04-17 01:22:02,STU-CCF30F,student,request_return,Requested return for book: 1984
+2025-04-17 01:22:11,STU-CCF30F,student,logout,Ehtisham logged out
+2025-04-17 01:22:35,admin-001,admin,login,Library Admin logged in as admin
+2025-04-17 01:30:32,admin-001,admin,login,Library Admin logged in as admin
+2025-04-17 01:41:50,admin-001,admin,login,Library Admin logged in as admin
+2025-04-17 01:41:57,admin-001,admin,return_book,Returned book: To Kill a Mockingbird from Ehtisham
+2025-04-17 01:42:01,admin-001,admin,return_book,Returned book: 1984 from Ehtisham
+2025-04-17 01:42:05,admin-001,admin,return_book,Returned book: Pride and Prejudice from Ehtisham
+2025-04-17 01:42:20,admin-001,admin,logout,Library Admin logged out
+2025-04-17 01:42:47,STU-CCF30F,student,login,Ehtisham logged in as student
+2025-04-17 01:42:58,STU-CCF30F,student,request_book,Requested book: To Kill a Mockingbird
+2025-04-17 01:43:23,admin-001,admin,login,Library Admin logged in as admin
+2025-04-17 01:43:30,admin-001,admin,approve_issue_request,Approved issue request: REQ-2 - To Kill a Mockingbird by Ehtisham
+2025-04-17 01:43:49,STU-CCF30F,student,login,Ehtisham logged in as student
+2025-04-17 01:44:06,STU-CCF30F,student,request_return,Requested return for book: To Kill a Mockingbird
+2025-04-17 01:44:21,admin-001,admin,return_book,Returned book: To Kill a Mockingbird from Ehtisham
+2025-04-17 01:55:48,admin-001,admin,login,Library Admin logged in as admin
