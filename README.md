@@ -1,5 +1,8 @@
 # Library Management System
 
+![Logo](images/Home.PNG)
+
+
 A comprehensive Python-based application built with Streamlit that facilitates the management of library resources, user accounts, and book circulation. The system provides separate interfaces for administrators and students, allowing for efficient library operations without requiring a database server.
 
 ## Table of Contents
