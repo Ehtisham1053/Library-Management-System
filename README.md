@@ -71,5 +71,5 @@ The Library Management System follows a modular architecture with clear separati
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/library-management-system.git
+   git clone https://github.com/Ehtisham1053/library-management-system.git
    cd library-management-system
